@@ -1,11 +1,16 @@
 const mongoose=require('mongoose');
+const dotenv=require("dotenv");
 
-const mongoURI="mongodb://localhost:27017/inotebook";
+dotenv.config({path:'./config.env'})
 
-const connectToMongo=()=>{
-    mongoose.connect(mongoURI,()=>{
-        console.log("Connected to Mongo Successfully")
-    })
+const mongoURI=process.env.DATABASE;
+
+//mongodb://localhost:27017/inotebook
+
+const connectToMongo= ()=>{
+    mongoose.connect(mongoURI).then(()=>{
+        console.log("Connected to Mongo Atlas Successfully");
+    }).catch((err)=>console.log(err));
 }
 
 module.exports=connectToMongo;

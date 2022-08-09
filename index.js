@@ -21,7 +21,6 @@ app.use('/api/notes',require('./routes/notes'))
 
 // hosting on heroku
 if ( process.env.NODE_ENV == "production"){
-
   app.use(express.static("inotebook/build"));
 }
 
