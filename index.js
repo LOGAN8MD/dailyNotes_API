@@ -15,6 +15,7 @@ app.use(express.json())
 //   res.send('Hello Deepak!')
 // })
 
+
 // Available Routes
 app.use('/api/auth',require('./routes/auth'))
 app.use('/api/notes',require('./routes/notes'))
