@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev":"env-cmd -f ./config/devlopment.env nodemon index.js",
-    "pro":"env-cmd -f ./config/production.env node index.js"
+    "pro":"env-cmd -f ./config/production.env node index.js",
+    "start":"node index.js"
   },
   "author": "",
   "license": "ISC",
