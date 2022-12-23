@@ -1,7 +1,11 @@
 const express = require('express')
 var cors = require('cors')
-const connectToMongo=require('./db');
+const dotenv = require("dotenv");
+const connectToMongo = require('./db');
 
+
+
+dotenv.config()
 
 connectToMongo();
 const app = express();
@@ -17,11 +21,16 @@ app.use(express.json())
 
 
 // Available Routes
-app.use('/api/auth',require('./routes/auth'))
-app.use('/api/notes',require('./routes/notes'))
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/notes', require('./routes/notes'))
+
+app.get('/', (res, req) => {
+  req.send("Welcome to my app")
+
+})
 
 // hosting on heroku
-if ( process.env.NODE_ENV == "production"){
+if (process.env.NODE_ENV == "production") {
   app.use(express.static("inotebook/build"));
 }
 
