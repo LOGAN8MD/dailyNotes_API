@@ -30,9 +30,7 @@ app.get('/', (res, req) => {
 })
 
 // hosting on heroku
-if (process.env.NODE_ENV == "production") {
-  app.use(express.static("inotebook/build"));
-}
+
 
 app.listen(port, () => {
   console.log(`dailyNotes backend listening at http://localhost:${port}`)
